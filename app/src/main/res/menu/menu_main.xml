@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.thirteenstones.activities.MainActivity">
+
+
+    <item
+        android:id="@+id/action_about_the_artist"
+        android:title="@string/about_the_artist"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_display_settings"
+        android:title="@string/display_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/search"
+        android:icon="@drawable/icon_search"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/action_filters"
+        android:icon="@drawable/icon_filters"
+        android:title="@string/filters"
+        app:showAsAction="ifRoom|withText" />
+
+
+
+</menu>
