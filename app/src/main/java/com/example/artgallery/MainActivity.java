@@ -67,7 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
     // Using ArrayList to store images data
     ArrayList images = new ArrayList<>(Arrays.asList(R.drawable.img1, R.drawable.img2, R.drawable.img3,
-            R.drawable.img4));
+            R.drawable.img4, R.drawable.all_dressed_up, R.drawable.alpine_edelweis,
+            R.drawable.be_strong_and_enduring_like_me, R.drawable.beauty_in_bloom, R.drawable.best_blossoms,
+            R.drawable.chasing_beauty, R.drawable.delicate_beauty, R.drawable.elegance_and_daintiness,
+            R.drawable.euphoria_scaled, R.drawable.favorite_succulents, R.drawable.floating_star,
+            R.drawable.flower_of_my_sweet_dream, R.drawable.flying_stars, R.drawable.red_treasure_on_gold,
+            R.drawable.star_is_born, R.drawable.summmer_afternoon, R.drawable.tenderness, R.drawable.the_hibiscus_with_rhythm,
+            R.drawable.whiff_of_forgotten_love));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
