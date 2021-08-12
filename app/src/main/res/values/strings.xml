@@ -14,4 +14,18 @@
     <string name="search">Search</string>
     <string name="filters">Filters</string>
 
+    <string name="paragraph1">Alex Kagan, a Swartzberg House resident and client of CJE’s Holocaust Community Services, is
+determined to remain active and engaged in life. In his 80s, Kagan has an impressively large
+collection of computer-generated images that he has created, even though he only started producing
+them in 2016. His subject matter includes landscapes, gatherings, symbols, flowers and other subject
+ matter.</string>
+
+    <string name="paragraph2">Kagan, who emigrated from the former Belarus to live in the US, was born in Minsk. He lost all of
+ his family during the Holocaust. He has a PhD in computer science and spent his career as a
+ computer specialist in artificial intelligence. Kagan prefers not to talk about the process of
+ creating his artwork. Suffice it to say that he controls his computer’s “brain” to convert
+ photographic images into expressive, painterly artworks. He then prints them off on glossy photo
+ paper, and the results are stunning.</string>
+    <string name="alex_kagan_name">Alex Kagan</string>
+
 </resources>
