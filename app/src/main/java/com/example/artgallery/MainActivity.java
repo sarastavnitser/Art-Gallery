@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         columnCount = COLUMNS_SMALL;
                 // Setting the layout as Staggered Grid for vertical orientation
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(columnCount, LinearLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(4, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         // Sending reference and data to Adapter
