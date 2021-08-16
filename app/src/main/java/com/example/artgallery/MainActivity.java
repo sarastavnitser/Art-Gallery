@@ -46,6 +46,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
         columnCount = COLUMNS_SMALL;
                 // Setting the layout as Staggered Grid for vertical orientation
+
+        
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(4, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_display_settings: {
-                DisplaySettings();
+                SettingsActivity();
                 return true;
             }
             case R.id.action_filters: {
@@ -145,15 +148,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void DisplaySettings() {
-        Intent intent = new Intent(getApplicationContext(), DisplaySettings.class);
-        startActivityForResult(intent,1);
+    private void SettingsActivity() {
+        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+        startActivity(intent);
     }
 
 
 
     private void aboutTheArtist() {
-
 
 
         Intent intent = new Intent(getApplicationContext(), com.example.artgallery.AboutActivity.class);
