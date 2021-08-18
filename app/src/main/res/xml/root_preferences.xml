@@ -3,10 +3,10 @@
     <PreferenceCategory app:title="@string/display_settings_title">
 
         <ListPreference
-            app:defaultValue="COLUMNS_MEDIUM"
+            app:defaultValue="@string/default_columns"
             app:entries="@array/size_entries"
             app:entryValues="@array/size_values"
-            app:key="reply"
+            app:key="column_number"
             app:title="@string/display_image_size"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>

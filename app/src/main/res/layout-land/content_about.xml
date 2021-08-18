@@ -1,94 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><!--<merge xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    tools:showIn="@layout/content_about">-->
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.appbar.AppBarLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?actionBarSize"
+        android:background="@color/secondaryDarkColor"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.AppBarLayout xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/top_bar"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@color/secondaryDarkColor"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/about_the_artist"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/secondaryTextColor"
-                android:textStyle="bold" />
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/alex_kagan_imageview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:src="@drawable/alex_kagan"
-                    app:layout_anchorGravity="bottom" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_gravity="top"
-                    android:gravity="center"
-                    android:text="@string/alex_kagan_name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@color/defaultBackgroundColor"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    />
+            android:text="@string/about_the_artist"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@color/secondaryTextColor"
+            android:textStyle="bold" />
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-                <TextView
-                    android:id="@+id/paragraph1_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="?actionBarSize"
-                    android:gravity="center_horizontal"
-                    android:padding="10dp"
-                    android:text="@string/paragraph1"
-                    app:layout_anchor="@id/alex_kagan_imageview"
+    <ImageView
+        android:id="@+id/alex_kagan_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/alex_kagan"
+        app:layout_anchorGravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar" />
 
-                    app:layout_anchorGravity="bottom" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:text="@string/alex_kagan_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/defaultBackgroundColor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/alex_kagan_imageview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:gravity="center_horizontal"
-                    android:paddingHorizontal="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="@string/paragraph2"
-                    app:layout_anchor="@id/paragraph1_textview"
-                    app:layout_anchorGravity="bottom">
 
-                </TextView>
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        </ScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <TextView
+        android:id="@+id/paragraph1_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/paragraph1"
+        app:layout_anchor="@id/alex_kagan_imageview"
+
+        app:layout_anchorGravity="bottom"
+        app:layout_constraintEnd_toStartOf="@id/alex_kagan_imageview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/paragraph2"
+        app:layout_anchor="@id/paragraph1_textview"
+        app:layout_anchorGravity="bottom"
+        app:layout_constraintStart_toEndOf="@id/alex_kagan_imageview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </TextView>
+
+
     <!--        </ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 

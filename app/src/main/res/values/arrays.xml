@@ -6,9 +6,10 @@
         <item>Small</item>
     </string-array>
 
-    <integer-array name="size_values">
+    <string-array name="size_values">
         <item>1</item>
         <item>2</item>
         <item>4</item>
-    </integer-array>
+    </string-array>
+
 </resources>

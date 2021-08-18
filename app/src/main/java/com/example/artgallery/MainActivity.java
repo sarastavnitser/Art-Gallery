@@ -40,13 +40,15 @@ package com.example.artgallery;
 //}
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -56,11 +58,12 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
+
 public class MainActivity extends AppCompatActivity {
 
-    private  final int COLUMNS_SMALL = 4;
-    private  final int COLUMNS_MEDIUM = 2;
-    private  final int COLUMNS_LARGE = 1;
+    StaggeredGridLayoutManager staggeredGridLayoutManager;
+    private String[] columnsArray;
 
     Snackbar mSnackBar;
     RecyclerView recyclerView;
@@ -78,18 +81,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Getting reference of recyclerView
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        columnCount = COLUMNS_SMALL;
-                // Setting the layout as Staggered Grid for vertical orientation
+        columnsArray = getResources().getStringArray(R.array.size_values);
 
-        
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(4, LinearLayoutManager.VERTICAL);
+        columnCount = Integer.parseInt(columnsArray[1]);
+        // Setting the layout as Staggered Grid for vertical orientation
+
+
+        staggeredGridLayoutManager = new StaggeredGridLayoutManager(columnCount,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         // Sending reference and data to Adapter
@@ -101,8 +105,35 @@ public class MainActivity extends AppCompatActivity {
         setupToolbar();
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        readColumnCountFromPreferences();
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    @Nullable Intent data) {
+        if (requestCode == 1) {
+            readColumnCountFromPreferences();
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+
+    private void readColumnCountFromPreferences() {
+        SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
+        String strCount = defaultSharedPreferences.getString("column_number", columnsArray[1]);
+        strCount = strCount.equals("") ? columnsArray[1] : strCount;
+        columnCount = Integer.parseInt(strCount);
+        staggeredGridLayoutManager.setSpanCount(columnCount);
+    }
+
 
     private void setupToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -138,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-}
+    }
 
     private void search() {
     }
@@ -150,9 +181,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void SettingsActivity() {
         Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
-
 
 
     private void aboutTheArtist() {
@@ -161,5 +191,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), com.example.artgallery.AboutActivity.class);
         startActivity(intent);
     }
-    }
+}
 

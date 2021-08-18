@@ -43,5 +43,6 @@ them in 2016. His subject matter includes landscapes, gatherings, symbols, flowe
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="default_columns">2</string>
 
 </resources>
